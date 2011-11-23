@@ -1,0 +1,25 @@
+I needed a way of turning on and unlocking the screen of my Android device for an incoming SIP call.
+Here is the module.
+
+You need to include the module in the tiapp.xml:
+            <module platform="android" version="0.1">com.yydigital.keyguard</module>
+
+You also need to add these permissions:
+            <!-- For Key Guard -->
+            <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+            <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+
+Then the code is something like this:
+
+        var keyguard = require("com.yydigital.keyguard");
+
+To disable the keyguard:       
+        keyguard.disable();
+
+To turn on the screen:
+			  keyguard.wakeUp();
+
+To enable the keyguard again:
+			  keyguard.enable();
+
